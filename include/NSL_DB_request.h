@@ -12,6 +12,17 @@ typedef struct
     char * payload;    
 } NSLDBRequest;
 
-void NSL_DB_init_request(NSLDBRequest *);
+// Initialize struct fields with zeros
+void NSL_DB_init_request  (NSLDBRequest *);
+void NSL_DB_free_payload  (NSLDBRequest *);
+void NSL_DB_alloc_payload (NSLDBRequest *); 
+
+// Parse request and payload data
 void NSL_DB_parse_request(const char *, NSLDBRequest *);
 void NSL_DB_parse_request_payload(const char *, NSLDBRequest *);
+
+
+// Assemble request and payload data
+void NSL_DB_assemble_request(const NSLDBRequest *, char *);
+void NSL_DB_assemble_request_payload(const NSLDBRequest *, char *);
+
